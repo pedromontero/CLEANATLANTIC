@@ -1,0 +1,6 @@
+# Ficheiro de entrada de datos 
+#BUFFER :: C:\Users\UsrXModel1\Documents\01_TRABALLO\01_PROXECTOS\00_CLEANATLANTIC\TRABALLO\ACUMULOS\GIS\buffers_1000\buffers1000x100_IH_WGS84.shp
+#BUFFER :: C:/Users/UsrXModel1/Documents/01_TRABALLO/01_PROXECTOS/00_CLEANATLANTIC/TRABALLO/ACUMULOS/GIS/buffers_praia_arousa/buffers_pr_sin_segmentarhp.shp
+#BUFFER :: C:\Users\UsrXModel1\OneDrive - INTECMAR\01_TRABALLO\01_PROXECTOS\00_CLEANATLANTIC\TRABALLO\GIS\SALVORA_DEF\salvora_500.shp
+BUFFER :: Y:/01_PROXECTOS/01_PROXECTOS_EN_CURSO/CLEANATLANTIC/07_DIVULGARE/GIS/Modelo/Buffers/Buffer_segmentado_Salvora.shp
+BUFFER_NAME :: salvora_500_model

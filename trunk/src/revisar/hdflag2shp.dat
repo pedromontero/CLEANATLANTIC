@@ -1,0 +1,8 @@
+# Ficheiro de entrada de datos 
+FILEIN :: ..\..\datos\Lagrangian_1.hdf5
+#FILEIN :: C:\Users\UsrXModel1\Documents\01_TRABALLO\02_INFORMES TECNICOS\01_INFORMES_EDAR\I20180405LAGARES\Lagrangian_1_MultiSolution_NoWind.hdf5
+FILESHP :: NW
+NAME_OR :: PLASTIC
+THICKNESS :: 0
+ENVELOPE :: 0
+BEACHED :: 1

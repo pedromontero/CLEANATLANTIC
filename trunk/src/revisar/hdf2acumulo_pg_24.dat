@@ -1,0 +1,9 @@
+# Ficheiro de entrada de datos
+
+FILEIN ::  C:\Users\UsrXModel1\Documents\02_TRABALLO\03_MODELOS\01_PROXECTOS_MOHID\CleanAtlantic_2\Proxecto\Execution\Level_1\res\lagrangian_20181107_20181120.hdf5
+BUFFER_NAME:: Arousa_500_100
+ORIXE_NAME:: TODO2
+NAME_HDF_ORI:: PLASTIC
+START:: 2018-11-09 00:00:00
+END:: 2018-11-19 00:00:00
+HOURS:: 24

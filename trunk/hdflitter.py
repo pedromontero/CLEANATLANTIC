@@ -19,9 +19,12 @@
 
 import sys
 import os
-import shutil
 import datetime
+from collections import OrderedDict
+import json
+
 import psycopg2
+
 from shapely.geometry import shape
 from shapely.geometry import Point
 from shapely import wkt
@@ -305,24 +308,20 @@ def proceso(lag_file_full, data_inicio, data_fin, dt, orixe_name, buffer_name):
     con.close()
 
 
-def main():
+def hdflitter():
     """
     vai percorrendo as datas dos distintos ficheiros
     :return:
     """
 
-    # DATOS:
-    dt = 24
-    orixe_name = 'MohidLitter_01'
-    buffer_name = 'salvora_500_model'
-    path_mohid = \
-        r'C:\Users\UsrXModel1\Documents\02_TRABALLO\03_MODELOS\01_PROXECTOS_MOHID\CleanAtlantic_2\Proxecto\Execution'
-    path_mohid = \
-        r'Y:\01_PROXECTOS\01_PROXECTOS_EN_CURSO\CLEANATLANTIC'
-    spin = 3
-    # FIN DATOS
+    with open('hdflitter.json', 'r') as f:
+        inputs = json.load(f, object_pairs_hook=OrderedDict)
+        orixe_name = inputs['origin']
+        buffer_name = inputs['buffer']
+        dt = inputs['acumulation_time']
+        path_lags = inputs['path_lag_files']
+        spin = input['spin']
 
-    path_lags = os.path.join(path_mohid, 'HDF5', 'res')
     file_list = [f for f in os.listdir(path_lags) if f.endswith(".hdf5")and f.startswith('lagrangian_2')]
     print(file_list)
 
@@ -345,4 +344,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    hdflitter()

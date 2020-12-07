@@ -211,6 +211,8 @@ def hdflitter():
         dt = inputs['acumulation_time']
         path_lags = inputs['path_lag_files']
         spin = input['spin']
+        output = input['output']
+
 
     file_list = [f for f in os.listdir(path_lags) if f.endswith(".hdf5")and f.startswith('lagrangian_2')]
     print(file_list)

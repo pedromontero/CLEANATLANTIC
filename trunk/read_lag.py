@@ -4,7 +4,7 @@
 """
 **read_lag.py**
 
-* *Purpose:* Clase para ler HDF do MOHID
+* *Purpose:* Class for reading a MOHID HDF5 file
 
 * *python version:* 3.7
 * *author:* Pedro Montero
@@ -22,13 +22,13 @@ import h5py
 
 class HDF:
     """
-    Clase HDF, para a lectura de HDF5 do MOHID
+    Class HDF, to read a MOHID HDF5 file
     """
     def __init__(self, file_in):
         """
-        Inicia a clase lendo un ficheiro HDF
+        Init the class reading a HDF5 fileInicia a clase lendo un ficheiro HDF
 
-        :param file_in: ficheiro HDF5 do MOHID
+        :param file_in: str, file name of MOHID HDF5 file
         """
 
         self.file = h5py.File(file_in, 'r')
@@ -38,7 +38,7 @@ class HDF:
 
     def get_times(self):
         """
-        Devolve unha lista de datetimes coas datas do ficheiro HDF5
+        Return a datetime list with the HDF5 file dates
 
         :return:
         """
@@ -57,9 +57,9 @@ class HDF:
 
     def get_beachlitter(self, var):
         """
-        Devolve unha lista cos valores da variable var dentro da sección BeachLitter
+        Return a list with values of var variable into the BeachLitter section
 
-        :param var: Nome da variable que ten que devolver.
+        :param var: str, name of variable to return
         :return:
         """
         root = 'Results/BeachLitter/' + var + '/' + var

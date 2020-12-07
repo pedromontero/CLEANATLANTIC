@@ -29,7 +29,10 @@ from shapely.geometry import shape
 from shapely.geometry import Point
 from shapely import wkt
 
-from read_lag import HDF
+from cleanatlantic.mohidhdf import MOHIDHDF
+from cleanatlantic.partic import Partic
+from cleanatlantic.buffer import Buffer, Polygon
+
 
 def conexion():
     """
@@ -106,108 +109,6 @@ def orixe(conn, orixe_name):
     return id_orixe
 
 
-class Buffer:
-    """
-    Clase Buffer
-    """
-    def __init__(self, con, buffer_name):
-        """ Inicializa o buffer dando un nome
-        :param con: conexión activa
-        :param buffer_name: Nome de buffer na base de datos
-        """
-        self.name = buffer_name
-        self.poligons = []
-        cur = con.cursor()
-        cur.execute("select id from acumulos.buffers where nome=%s", (self.name,))
-        ids = cur.fetchall()
-        self.id = ids[0][0]
-
-    def fill_poligons(self, con):
-        """
-        Enche unha lista cos polígonos
-        :param con: conexión
-        :return:
-        """
-        cur = con.cursor()
-        cur.execute("select id,st_astext(poligono) from acumulos.poligonos where id_buffer=%s", (self.id,))
-        resposta = cur.fetchall()
-        for id_f, geom_f in resposta:
-            self.poligons.append(Poligono(id_f, geom_f))
-        return
-
-    def add_cantidades_to_poligons(self, cantidades):
-        """Agrega cantidades a todos os poligons dun buffer
-         :param cantidades: Lista de cantidades por intervalo para cada polígono
-         :return:
-         """
-        for poligon in self. poligons:
-            poligon.add_cantidades(cantidades)
-        return
-
-
-class Poligono:
-    """Clase polígono dun buffer"""
-
-    def __init__(self, id_p, geom_p):
-        """Inicializa un poligono con cantidade 0
-        :param id_p: id do poligono na base de datos
-        :param geom_p: geometría do polígono na base de datos
-        """
-        self.id = id_p
-        self.geom = geom_p
-        self.cantidades = None
-        self.polygon = self.get_cantos()
-
-    def get_cantos(self):
-        """
-        Devolve os cantos dun polígono
-        :return:
-        """
-        return shape(wkt.loads(self.geom))
-
-    def add_cantidades(self, len_intervalos):
-        """
-        Agrega unha lista de cantidades, o indice é o intervalo
-        :param len_intervalos:  lonxitude do número de intervalos coas cantidades de particulas que ten o buffer
-        :return:
-        """
-        self.cantidades = [0]*len_intervalos
-
-
-class Partic:
-    """Clase partícula lagrangiana"""
-
-    def __init__(self, lat, lon, age, beach_time):
-        """
-        inicia a clase Partic da partícula
-        :param lat: latitude dunha particula no ficheiro de saída lagranxiana
-        :param lon: lonxitude dunha particula no ficheiro de saída lagranxiana
-        :param age: idade en segundos dunha particula no ficheiro de saída lagranxiana
-        """
-        self.lat = lat
-        self.lon = lon
-        self.age = age
-        self.beach_time = beach_time
-        self.pt = Point(self.lon, self.lat)
-        self.intervalo = None
-        self.id_intervalo = None
-
-    def get_interval(self, data_inicio, dt):
-        """
-        Obten o intervalo a onde pertence a particula
-        :param data_inicio: data do inicio do lagrangian
-        :param dt: intervalos en horas
-        :return:
-        """
-        data = self.beach_time
-
-        dif = data - data_inicio
-        delta = dif / datetime.timedelta(hours=dt)
-        int_delta = int(delta)
-        result = data_inicio + datetime.timedelta(hours=int_delta * dt)
-        return result
-
-
 def proceso(lag_file_full, data_inicio, data_fin, dt, orixe_name, buffer_name):
     """
     Le un ficheiro lagranxiano e calcula a cantidade acumulada en 24 horas por buffer.
@@ -228,14 +129,14 @@ def proceso(lag_file_full, data_inicio, data_fin, dt, orixe_name, buffer_name):
 
     :return:
     """
-    lag_file = HDF(lag_file_full)
+    lag_file = MOHIDHDF(lag_file_full)
 
     data_fin_intervalos = data_fin
 
-    age_pts = lag_file.get_beachlitter('Age')
-    lat_pts = lag_file.get_beachlitter('Latitude')
-    lon_pts = lag_file.get_beachlitter('Longitude')
-    beach_time_2D = lag_file.get_beachlitter('Beach_Time')
+    age_pts = lag_file.get_var('BeachLitter', 'Age')
+    lat_pts = lag_file.get_beachlitter('BeachLitter', 'Latitude')
+    lon_pts = lag_file.get_beachlitter('BeachLitter', 'Longitude')
+    beach_time_2D = lag_file.get_beachlitter('BeachLitter', 'Beach_Time')
     dy, n_partic = beach_time_2D.shape
     beach_time_pts = []
     for n in range(n_partic):

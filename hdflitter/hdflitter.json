@@ -4,5 +4,6 @@
     "acumulation_time": 24,
     "path_lag_files": "C:/Users/UsrXModel1/Documents/02_TRABALLO/03_MODELOS/01_PROXECTOS_MOHI/CleanAtlantic_2/Proxect/Execution/Level_1/res" ,
     "spin": 3,
+    "db_con": "../datos/db_data.json",
     "output": {"shp": "../out/hotspot.shp"}
 }

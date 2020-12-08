@@ -34,26 +34,14 @@ from cleanatlantic.partic import Partic
 from cleanatlantic.buffer import Buffer, Polygon
 
 
-def conexion():
+def conexion(db_json):
     """
     Conectase a base de datos do posGIS, e devolve a conexión
     :return: con, conexión activa
     """
 
-    # WARNING:
-    #
-    #           Production server host: svr_ide_1
-    #           Developing server host: svr_dev_1
-    #
-    # CHANGE IF NEEDED
-
-    database_data = {'host': 'svr_dev_1',
-                     'port': '5432',
-                     'dbname': 'CleanAtlantic',
-                     'user': 'postgres',
-                     'password': '986512320'}
-
-    # End static configuration
+    with open(db_json, 'r') as f:
+        database_data = json.load(f, object_pairs_hook=OrderedDict)
 
     # Connection to postgis
     connection_string = 'host={0} port={1} dbname={2} user={3} password={4}'.format(database_data['host'],
@@ -109,7 +97,7 @@ def orixe(conn, orixe_name):
     return id_orixe
 
 
-def proceso(lag_file_full, data_inicio, data_fin, dt, orixe_name, buffer_name):
+def proceso(lag_file_full, data_inicio, data_fin, dt, db_con, orixe_name, buffer_name):
     """
     Le un ficheiro lagranxiano e calcula a cantidade acumulada en 24 horas por buffer.
     Os datos están incluido no código na sección datos.
@@ -174,7 +162,7 @@ def proceso(lag_file_full, data_inicio, data_fin, dt, orixe_name, buffer_name):
 
     # Lemos os poligonos da base de datos
 
-    con = conexion()
+    con = conexion(db_con)
     id_orixe = orixe(con, orixe_name)
     buffer = Buffer(con, buffer_name)
     buffer.fill_poligons(con)
@@ -186,7 +174,7 @@ def proceso(lag_file_full, data_inicio, data_fin, dt, orixe_name, buffer_name):
             if particula.pt.within(poligono.polygon):
                 poligono.cantidades[particula.id_intervalo] += 1
     cur = con.cursor()
-    for poligono in buffer.poligons:
+    for poligono in buffer.poligons:  # TODO: Crear la opcion para escribir shp
         for n, data_intervalo in enumerate(data_intervalos):
             sql = '''INSERT INTO  acumulos.cantidade( id_poligono, id_orixe, data, tempo, cantidade)
                                      VALUES (%s, %s, %s, %s, %s)'''
@@ -205,23 +193,24 @@ def hdflitter():
     """
 
     try:
-        with open('../hdflitter.json', 'r') as f:
+        with open('hdflitter.json', 'r') as f:
             inputs = json.load(f, object_pairs_hook=OrderedDict)
             orixe_name = inputs['origin']
             buffer_name = inputs['buffer']
             dt = inputs['acumulation_time']
             path_lags = inputs['path_lag_files']
             spin = inputs['spin']
+            db_con = inputs['db_con']
             output = inputs['output']
 
             if "shp" in output:
                 print(output["shp"])
             elif "db" in output:
-                print(output["db"])
+                print(output["db"])  # TODO: mirar si hay que poner algo más
             else:
                 raise Exception("Only one db or one shp is permited for the output key in hdflitter.json ")
     except IOError:
-        sys.exit('An error occured trying to read the file.')
+        sys.exit('An error happened trying to read the file.')
     except KeyError:
         sys.exit('An error with a key')
     except ValueError:
@@ -230,7 +219,7 @@ def hdflitter():
         print(err)
         sys.exit("Error with the input hdflitter.json")
 
-    file_list = [f for f in os.listdir(path_lags) if f.endswith(".hdf5")and f.startswith('lagrangian_2')]
+    file_list = [f for f in os.listdir(path_lags) if f.endswith(".hdf5") and f.startswith('lagrangian_2')]
     print(file_list)
 
     for file in file_list:
@@ -248,7 +237,7 @@ def hdflitter():
         print(data_inicio, data_fin)
 
         lag_file_full = os.path.join(path_lags, file)
-        proceso(lag_file_full, data_inicio, data_fin, dt, orixe_name, buffer_name)
+        proceso(lag_file_full, data_inicio, data_fin, dt, db_con, orixe_name, buffer_name)
 
 
 if __name__ == '__main__':

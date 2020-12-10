@@ -12,8 +12,8 @@
 * *license:* INTECMAR
 * *requires:* read_lag (UMO)
 * *date:* 2020/01/29
-* *version:* 0.0.5
-* *date version* 2020/03/03
+* *version:* 1.5.5
+* *date version* 2020/12/10
 
 """
 

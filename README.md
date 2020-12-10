@@ -20,6 +20,7 @@ O cartafol trunk ten os seguintes programas:
 * hdflitter_agrega: programa que acumula días de cantidades que están dentro de un buffer na base de datos.
 * insertbuffer.py: Inserta un buffer na base de datos a partir de un shapefile
 * insertorde.py: engade unha táboa de ordenamento dos buffers.
+* pegspeed.py: Read a hdf5 file and get the value of velocity on points and times from a csv dataframe
 
 Estoy facendo unha restructuración e limpeza do código, e cada programa vai ir no seu cartafol. Por agora xa empecei con 
 hdflitter.py

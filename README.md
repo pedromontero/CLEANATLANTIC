@@ -23,4 +23,4 @@ O cartafol trunk ten os seguintes programas:
 * pegspeed.py: Read a hdf5 file and get the value of velocity on points and times from a csv dataframe
 
 Estoy facendo unha restructuración e limpeza do código, e cada programa vai ir no seu cartafol. Por agora xa empecei con 
-hdflitter.py
+hdflitter.py, and pegspeed.py

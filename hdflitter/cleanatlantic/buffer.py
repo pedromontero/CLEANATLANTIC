@@ -1,3 +1,6 @@
+from shapely.geometry import shape
+from shapely import wkt
+
 
 class Buffer:
     """

@@ -1,5 +1,9 @@
+import datetime
+from shapely.geometry import Point
+
+
 class Partic:
-    """Clase partícula lagrangiana"""
+    """Class Lagrangian Partic"""
 
     def __init__(self, lat, lon, age, beach_time):
         """

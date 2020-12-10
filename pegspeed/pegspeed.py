@@ -23,55 +23,33 @@ import numpy as np
 import xarray
 import pandas as pd
 
-
-def hdf2ds(hdf_file):
-
-# Paths inside HDF5
-    rootGroup = 'Results/'
-    nameTimesGroup = '/Time/'
-    root_var = 'velocity modulus'
-
-# var
-    tempo = []
+from cleanatlantic.mohidhdf import MOHIDHDF
 
 
-    f = h5py.File(hdf_file,'r')
+def hdf2ds(hdf_file_name):
 
-# Le as latitudes e lonxitudes e busca os nodos do cadrado
-    latIn = f['/Grid/Latitude']
-    lonIn = f['/Grid/Longitude']
+    var_name = 'velocity modulus'
 
-    j_max = latIn.shape[1]
-    i_max = latIn.shape[0]
+    hdf_file = MOHIDHDF(hdf_file_name)
+    lat_in = hdf_file.latitudes
+    lon_in = hdf_file.longitudes
+
+    j_max = lat_in.shape[1]
+    i_max = lat_in.shape[0]
 
     lat = []
     for j in range(j_max-1):
-        lat_med = 0.5*(latIn[0, j]+latIn[0, j+1])
+        lat_med = 0.5*(lat_in[0, j]+lat_in[0, j+1])
         lat.append(lat_med)
 
     lon = []
     for i in range(i_max - 1):
-        lon_med = 0.5 * (lonIn[i, 0] + lonIn[i+1, 0])
+        lon_med = 0.5 * (lon_in[i, 0] + lon_in[i+1, 0])
         lon.append(lon_med)
+    times = hdf_file.times
+    var_time = hdf_file.get_var_time('Results', var_name)
 
-# le os tempos pois o bucle vai ser por aqui
-    timesGroup = f[nameTimesGroup]
-
-    var_time = []
-    for nameTime in timesGroup:
-
-        num_name = nameTime.split('_')[1]
-
-        rootNameTime = nameTimesGroup + nameTime
-        time = f[rootNameTime]
-        dataIn=datetime(int(time[0]), int(time[1]), int(time[2]), int(time[3]), int(time[4]), int(time[5]))
-        tempo.append(dataIn)
-        name_var = rootGroup + '/' + root_var + '/' + root_var + '_' + num_name
-
-        var = f[name_var]
-        var_time.append(var)
-
-    k = np.array(range(0, len(var)))
+    k = np.array(range(0, len(var_time[0])))
     ds = xarray.Dataset(
         data_vars=dict(
             modulo=(["time", "z", "lon", "lat"], var_time),
@@ -80,17 +58,18 @@ def hdf2ds(hdf_file):
             lon=(["lon"], lon),
             lat=(["lat"], lat),
             z=(["z"], k),
-            time=tempo,
+            time=times,
 
         ),
-        attrs=dict(description="Weather related data."),
+        attrs=dict(description="MOHID Hydrodynamic File"),
     )
+
     ds = ds.transpose ("lon","lat","z","time")
-    f.close()
     return ds
 
 
 def pegspeed():
+
     hdf_file = '../hdf/MOHID_Hydrodynamic_Arousa_20190717_0000.hdf5'
     csv_file = '20190718_1.csv'
     df = pd.read_csv(csv_file)

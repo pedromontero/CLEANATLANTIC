@@ -33,14 +33,15 @@ class MOHIDHDF:
 
         self.file = h5py.File(file_in, 'r')
         self.shape = self.file['Grid/Bathymetry'].shape
-        self.latitude = self.file['Grid/Latitude'][:]
-        self.longitude = self.file['Grid/Longitude'][:]
+        self.latitudes = self.file['Grid/Latitude'][:]
+        self.longitudes = self.file['Grid/Longitude'][:]
+        self.times = self.__get_times()
 
-    def get_times(self):
+    def __get_times(self):
         """
         Return a datetime list with the HDF5 file dates
 
-        :return:
+        :return: list, a datetime list
         """
         name_times_group = '/Time/'
         times_group = self.file[name_times_group]
@@ -49,22 +50,37 @@ class MOHIDHDF:
         for name_time in times_group_list:
             root_name_time = name_times_group + name_time
             time = self.file[root_name_time]
-
-            data = datetime.datetime(year=int(time[0]), month=int(time[1]), day=int(time[2])
+            date = datetime.datetime(year=int(time[0]), month=int(time[1]), day=int(time[2])
                                      , hour=int(time[3]), minute=int(time[4]), second=int(time[5]))
-            dates.append(data)
+            dates.append(date)
         return dates
 
-    def get_var(self, path, var):
+    def get_var(self, path, var_name):
         """
         Return a list with values of var variable into the BeachLitter section
 
-        :param path: str, path into hdf5 file between Results and var
-        :param var: str, name of variable to return
+        :param path: str, path into hdf5 file  and var
+        :param var_name: str, name of variable to return
         :return:
         """
-        root = 'Results/' + path + '/' + var + '/' + var
+        root = path + '/' + var_name + '/' + var_name
         return self.file[root][:]
+
+    def get_var_time(self, path, var_name):
+        """
+        Return a list with values of var variable with time dimension
+
+        :param path: str, path into hdf5 file  var_name
+        :param var_name: str, name of variable to return
+        :return:
+        """
+        var_time = []
+        for i,time in enumerate(self.times):
+            num = f'{i+1:05}'
+            full_var_name = path + '/' + var_name + '/' + var_name + '_' + num
+            var = self.file[full_var_name]
+            var_time.append(var)
+        return var_time
 
 
 

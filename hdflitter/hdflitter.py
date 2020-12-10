@@ -117,10 +117,10 @@ def proceso(lag_file_full, data_inicio, data_fin, dt, db_con, orixe_name, buffer
 
     data_fin_intervalos = data_fin
 
-    age_pts = lag_file.get_var('BeachLitter', 'Age')
-    lat_pts = lag_file.get_var('BeachLitter', 'Latitude')
-    lon_pts = lag_file.get_var('BeachLitter', 'Longitude')
-    beach_time_2D = lag_file.get_var('BeachLitter', 'Beach_Time')
+    age_pts = lag_file.get_var('Results/BeachLitter', 'Age')
+    lat_pts = lag_file.get_var('Results/BeachLitter', 'Latitude')
+    lon_pts = lag_file.get_var('Results/BeachLitter', 'Longitude')
+    beach_time_2D = lag_file.get_var('Results/BeachLitter', 'Beach_Time')
     dy, n_partic = beach_time_2D.shape
     beach_time_pts = []
     for n in range(n_partic):

@@ -41,7 +41,7 @@ class Buffer:
         return
 
 
-class Poligono:
+class Polygon:
     """Clase polígono dun buffer"""
 
     def __init__(self, id_p, geom_p):

@@ -16,7 +16,6 @@
 
 """
 
-import h5py
 from datetime import datetime, timedelta
 
 import numpy as np
@@ -64,7 +63,7 @@ def hdf2ds(hdf_file_name):
         attrs=dict(description="MOHID Hydrodynamic File"),
     )
 
-    ds = ds.transpose ("lon","lat","z","time")
+    ds = ds.transpose("lon", "lat","z","time")
     return ds
 
 
@@ -83,7 +82,7 @@ def pegspeed():
         date_d = datetime.strptime(row['date'], "%Y/%m/%d %H:%M:%S")
 
         da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])
-        print(da.modulo.values[0][0][0][0])
+        print(da.modulo.values[0][0][0][0], row['date'])
 
 if __name__ == '__main__':
 

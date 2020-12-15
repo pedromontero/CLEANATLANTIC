@@ -22,6 +22,7 @@ import sys
 import os
 import shutil
 import datetime
+from datetime import timedelta
 import psycopg2
 from shapely.geometry import shape
 from shapely.geometry import Point
@@ -344,17 +345,18 @@ def main():
         con.commit()
 
         resposta = cur.fetchall()
+        print(resposta[3],poligon.id)
 
         cant_total = 0
         tempo_total = 0
         for data, tempo, cantidade in resposta:
-
             cant_total += cantidade
             tempo_total += tempo
             if data.weekday() == 4:
                 parametros = (poligon.id,id_orixe_fin, data, tempo_total, cant_total,)
-                sql = '''INSERT INTO  acumulos.cantidade( id_poligono, id_orixe, data, tempo, cantidade)
+                sql = '''INSERT INTO  acumulos.cantidade(id_poligono, id_orixe, data, tempo, cantidade)
                                                      VALUES (%s, %s, %s, %s, %s)'''
+                #print(parametros)
                 cur.execute(sql, parametros)
                 con.commit()
 

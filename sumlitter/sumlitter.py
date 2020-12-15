@@ -45,20 +45,20 @@ A sumlitter.json is needed:
 import sys
 import json
 from collections import OrderedDict
-import psycopg2
 from cleanatlantic.buffer import Buffer
 from cleanatlantic.db import orixe, conexion
 
 
-
-
-def main():
+def sumlitter(input_json_file):
     """
+    Create a new list of acumulations in the database, but in this case, it is build by the sum of
+    of a number of rows of other list.
 
+    :param input_json_file:str, input json file name
     :return:
     """
     try:
-        with open('sumlitter.json', 'r') as f:
+        with open(input_json_file, 'r') as f:
             inputs = json.load(f, object_pairs_hook=OrderedDict)
             orixe_name_ini = inputs['input_origin']
             orixe_name_fin = inputs['output_origin']
@@ -115,4 +115,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    input_json = 'sumlitter.json'
+    sumlitter(input_json)

@@ -28,7 +28,7 @@ class Buffer:
         cur.execute("select id,st_astext(poligono) from acumulos.poligonos where id_buffer=%s", (self.id,))
         resposta = cur.fetchall()
         for id_f, geom_f in resposta:
-            self.poligons.append(Poligono(id_f, geom_f))
+            self.poligons.append(Polygon(id_f, geom_f))
         return
 
     def add_cantidades_to_poligons(self, cantidades):

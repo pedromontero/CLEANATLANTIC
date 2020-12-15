@@ -202,15 +202,23 @@ def main():
     vai percorrendo as datas dos distintos ficheiros
     :return:
     """
+    try:
+        with open('sumlitter.json', 'r') as f:
+            inputs = json.load(f, object_pairs_hook=OrderedDict)
+            orixe_name_ini = inputs['input_origin']
+            orixe_name_fin = inputs['output_origin']
+            buffer_name = inputs['buffer']
+            db_con = inputs['db_con']
+    except IOError:
+        sys.exit('An error occured trying to read the file.')
+    except KeyError:
+        sys.exit('An error with a key')
+    except ValueError:
+        sys.exit('Non-numeric data found in the file.')
+    except Exception as err:
+        print(err)
+        sys.exit("Error with the input sumlitter.json")
 
-    # DATOS:
-    dt = 24
-    orixe_name_ini = 'MohidLitter_01'
-    orixe_name_fin = 'MohidLitter_01_semanal'
-    # buffer_name = 'praias_arousa'
-    buffer_name = 'salvora_500_model'
-    db_con = '../datos/db_data.json'
-    # FIN DATOS
 
     # Lemos os poligonos da base de datos
     con = conexion(db_con)

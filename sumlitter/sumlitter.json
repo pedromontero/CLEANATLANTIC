@@ -1,0 +1,6 @@
+{
+  "input_origin": "MohidLitter_01",
+  "output_origin":  "MohidLitter_01_semanal",
+  "buffer": "salvora_500_model",
+  "db_con" : "../datos/db_data.json"
+}

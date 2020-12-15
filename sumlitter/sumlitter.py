@@ -75,7 +75,7 @@ def sumlitter(input_json_file):
         print(err)
         sys.exit("Error with the input sumlitter.json")
 
-    # Lemos os poligonos da base de datos
+    # Read polygons from the data base
     con = conexion(db_con)
     id_orixe = orixe(con, orixe_name_ini)
     id_orixe_fin = orixe(con, orixe_name_fin)

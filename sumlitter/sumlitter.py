@@ -4,109 +4,66 @@
 """
 **sumlitter.py**
 
-* *Purpose:* Crea nuevos registros de acumulación, pero ahora a partir de los anteriores porque agrega días. Ejemplo:
-De los acumulos de 24 horas, crea otra lista de acumulos de una semana sumando los anteriores de lunes a domingo.
-Esto se hace por que el programa hdflitter no puede contar acumulos que impliquen más de un fichero lagrangiano.
+* *Purpose:* Create a new list of acumulations in the database, but in this case, it is build by the sum of
+of a number of rows of other list.
+
+* *Description:* sumlitter reads all the amount of beached particles of a buffer from the CleanAtlantic acumulos
+data base and create another origin with the sum of the n times amounts.
+
+The recorded datetime is the end date. All the counted amount is the amount pilled up until that date.
+
+A sumlitter.json is needed:
+
+  "input_origin": original buffer where the amounts will be counted from
+  "output_origin":  the output origin
+  "buffer": the buffer to be counted; It is the same from input and output
+  "sum_rows": number of rows (days if original amounts are 24-hours counting
+  "db_con" : a json file with the parameters of the db connection
+
+  ex:
+
+        {
+        "input_origin": "MohidLitter_01",
+        "output_origin":  "MohidLitter_01_7days",
+        "buffer": "salvora_500_model",
+        "sum_rows": 7,
+        "db_con" : "../datos/db_data.json"
+        }
+
+* *Funding:* CleanAtlantic
 
 * *python version:* 3.7
 * *author:* Pedro Montero
-* *license:* INTECMAR
+* *license:* INTECMAR, CleanAtlantic
 * *requires:* psycopg2
 * *date:* 2020/04/06
-* *version:* 0.0.1
-* *date version* 2020/04/06
+* *version:* 1.0.0
+* *date version* 2020/12/15
 
 """
 
 import sys
-import os
-import shutil
 import json
 from collections import OrderedDict
-import datetime
-from datetime import timedelta
-import psycopg2
-from shapely.geometry import shape
-from shapely.geometry import Point
-from shapely import wkt
-from cleanatlantic.partic import Partic
-from cleanatlantic.buffer import Buffer, Polygon
+from cleanatlantic.buffer import Buffer
+from cleanatlantic.db import orixe, conexion
 
 
-def conexion(db_json):
+def sumlitter(input_json_file):
     """
-    Connect to a db and return the conection, con
-    :param db_json: str, json file with db parameters to connect to
-    :return: con, conexión activa
-    """
+    Create a new list of acumulations in the database, but in this case, it is build by the sum of
+    of a number of rows of other list.
 
-    with open(db_json, 'r') as f:
-        database_data = json.load(f, object_pairs_hook=OrderedDict)
-
-    # Connection to postgis
-    connection_string = 'host={0} port={1} dbname={2} user={3} password={4}'.format(database_data['host'],
-                                                                                    database_data['port'],
-                                                                                    database_data['dbname'],
-                                                                                    database_data['user'],
-                                                                                    database_data['password'])
-    try:
-        conn = psycopg2.connect(connection_string)
-    except psycopg2.OperationalError:
-        print('CAUTION: ERROR WHEN CONNECTING TO {0}'.format(database_data['host']))
-        sys.exit()
-    return conn
-
-
-def orixe(conn, orixe_name):
-    """
-    Devolve o id_orixe da conexion con nome orixe_name. Se non existe este orixe, creao.
-
-    :param conn: conexion a base de datos
-    :param orixe_name: nome da orixe (simulacion)
-    :return: id da orixe na base de datos
-    """
-    try:
-        cur = conn.cursor()
-        sql = '''SELECT * FROM acumulos.orixes WHERE tipo=%s'''
-        params = (orixe_name,)
-        cur.execute(sql, params)
-        conn.commit()
-        existe = bool(cur.rowcount)
-    except psycopg2.Error as e:
-        print(' Eror tratando de coenctar a base de datos')
-        print(e)
-
-    # Se non existe inserta
-    try:
-        if not existe:
-            print(f'Vou insertar a seguinte orixe {orixe_name}')
-            sql = '''INSERT INTO acumulos.orixes (tipo)  VALUES (%s)'''
-            params = (orixe_name,)
-            cur.execute(sql, params)
-            conn.commit()
-
-    except psycopg2.IntegrityError as e:
-        print(f'Error ao intentar insertar un orixe con nome {orixe_name}\n')
-        print(e)
-
-    # Selecciona o id da orixe.
-    cur = conn.cursor()
-    cur.execute("select id from acumulos.orixes where tipo=%s", (orixe_name,))
-    ids = cur.fetchall()
-    id_orixe = ids[0][0]
-    return id_orixe
-
-def main():
-    """
-    vai percorrendo as datas dos distintos ficheiros
+    :param input_json_file:str, input json file name
     :return:
     """
     try:
-        with open('sumlitter.json', 'r') as f:
+        with open(input_json_file, 'r') as f:
             inputs = json.load(f, object_pairs_hook=OrderedDict)
             orixe_name_ini = inputs['input_origin']
             orixe_name_fin = inputs['output_origin']
             buffer_name = inputs['buffer']
+            d = inputs['sum_rows']
             db_con = inputs['db_con']
     except IOError:
         sys.exit('An error occured trying to read the file.')
@@ -118,7 +75,7 @@ def main():
         print(err)
         sys.exit("Error with the input sumlitter.json")
 
-    # Lemos os poligonos da base de datos
+    # Read polygons from the data base
     con = conexion(db_con)
     id_orixe = orixe(con, orixe_name_ini)
     id_orixe_fin = orixe(con, orixe_name_fin)
@@ -136,27 +93,27 @@ def main():
         con.commit()
 
         resposta = cur.fetchall()
-        print(resposta[3], poligon.id)
-
-        cant_total = 0
-        tempo_total = 0
-        for data, tempo, cantidade in resposta:
-            cant_total += cantidade
-            tempo_total += tempo
-            if data.weekday() == 4:
-                parametros = (poligon.id,id_orixe_fin, data, tempo_total, cant_total,)
+        for i, row in enumerate(resposta):
+            if i + d < len(resposta):
+                date_end = resposta[i + d][0]
+                sum_amount = 0
+                sum_time = 0
+                for n in range(d-1, -1, -1):
+                    actual_time = resposta[i+n][1]
+                    actual_amount = resposta[i+n][2]
+                    sum_time += actual_time
+                    sum_amount += actual_amount
+                parametros = (poligon.id, id_orixe_fin, date_end, sum_time, sum_amount,)
                 sql = '''INSERT INTO  acumulos.cantidade(id_poligono, id_orixe, data, tempo, cantidade)
                                                      VALUES (%s, %s, %s, %s, %s)'''
-                print(parametros)
-                #cur.execute(sql, parametros)
-                #con.commit()
 
-                tempo_total = 0
-                cant_total = 0
+                cur.execute(sql, parametros)
+                con.commit()
 
     cur.close()
     con.close()
 
 
 if __name__ == '__main__':
-    main()
+    input_json = 'sumlitter.json'
+    sumlitter(input_json)

@@ -1,6 +1,7 @@
 {
   "input_origin": "MohidLitter_01",
-  "output_origin":  "MohidLitter_01_semanal",
+  "output_origin":  "MohidLitter_01_7days",
   "buffer": "salvora_500_model",
+  "sum_rows": 7,
   "db_con" : "../datos/db_data.json"
 }

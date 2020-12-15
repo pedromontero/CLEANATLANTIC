@@ -19,18 +19,12 @@ Esto se hace por que el programa hdflitter no puede contar acumulos que implique
 """
 
 import sys
-import os
-import shutil
 import json
 from collections import OrderedDict
 import datetime
 from datetime import timedelta
 import psycopg2
-from shapely.geometry import shape
-from shapely.geometry import Point
-from shapely import wkt
-from cleanatlantic.partic import Partic
-from cleanatlantic.buffer import Buffer, Polygon
+from cleanatlantic.buffer import Buffer
 
 
 def conexion(db_json):
@@ -137,17 +131,26 @@ def main():
 
         resposta = cur.fetchall()
         print(resposta[3], poligon.id)
+        d = 7
+        for i, row in enumerate(resposta):
+            if i + d < len(resposta):
+                date_ini = row[0]
+                sum_amount = 0
+                sum_time = 0
+                for n in range(0, d):
+                    actual_date = resposta[i+n][0]
+                    actual_time = resposta[i+n][1]
+                    actual_amount = resposta[i+n][2]
+                    sum_time += actual_time
+                    sum_amount += actual_amount
 
-        cant_total = 0
-        tempo_total = 0
-        for data, tempo, cantidade in resposta:
-            cant_total += cantidade
-            tempo_total += tempo
-            if data.weekday() == 4:
-                parametros = (poligon.id,id_orixe_fin, data, tempo_total, cant_total,)
+                print(date_ini, actual_date, sum_time, actual_amount, sum_amount)
+
+                parametros = (poligon.id, id_orixe_fin, date_ini, sum_time, sum_amount,)
+                print(parametros)
                 sql = '''INSERT INTO  acumulos.cantidade(id_poligono, id_orixe, data, tempo, cantidade)
                                                      VALUES (%s, %s, %s, %s, %s)'''
-                print(parametros)
+                #print(parametros)
                 #cur.execute(sql, parametros)
                 #con.commit()
 

@@ -39,7 +39,7 @@ class MOHIDHDF:
 
     def __get_times(self):
         """
-        Return a datetime list with the HDF5 file dates
+        Return a datetime list with the dates of HDF5 file
 
         :return: list, a datetime list
         """

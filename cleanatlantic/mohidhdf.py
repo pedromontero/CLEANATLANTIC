@@ -8,11 +8,11 @@
 
 * *python version:* 3.7
 * *author:* Pedro Montero
-* *license:* INTECMAR
+* *license:* INTECMAR, CleanAtlantic
 * *requires:* h5py
 * *date:* 2020/01/29
-* *version:* 0.0.1
-* *date version* 2020/02/05
+* *version:* 0.0.9
+* *date version* 2020/12/05
 
 """
 

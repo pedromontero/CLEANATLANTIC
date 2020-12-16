@@ -55,6 +55,27 @@ class MOHIDHDF:
             dates.append(date)
         return dates
 
+    def get_results_var_names(self):
+        """
+        Returns a list of variable names stored under /Results/
+
+        :return: list of variables names under /Results
+        """
+        result_group_path = '/Results/'
+        result_group = self.file[result_group_path]
+        return list(result_group.keys())
+
+    def get_results_var_time_len(self, var_name):
+        """
+        Returns the number of times that a variable has got.
+
+        :param var_name: a name of a variable in Results
+        :return: int, a number of times of that variable
+        """
+
+        name = '/Results/' + var_name
+        return len(self.file[name].keys())
+
     def get_var(self, path, var_name):
         """
         Return a list with values of var variable into the BeachLitter section
@@ -75,7 +96,7 @@ class MOHIDHDF:
         :return:
         """
         var_time = []
-        for i,time in enumerate(self.times):
+        for i, time in enumerate(self.times):
             num = f'{i+1:05}'
             full_var_name = path + '/' + var_name + '/' + var_name + '_' + num
             var = self.file[full_var_name]

@@ -50,8 +50,8 @@ class MOHIDHDF:
         for name_time in times_group_list:
             root_name_time = name_times_group + name_time
             time = self.file[root_name_time]
-            date = datetime.datetime(year=int(time[0]), month=int(time[1]), day=int(time[2])
-                                     , hour=int(time[3]), minute=int(time[4]), second=int(time[5]))
+            date = datetime.datetime(year=int(time[0]), month=int(time[1]), day=int(time[2]), hour=int(time[3]),
+                                     minute=int(time[4]), second=int(time[5]))
             dates.append(date)
         return dates
 
@@ -102,10 +102,3 @@ class MOHIDHDF:
             var = self.file[full_var_name]
             var_time.append(var)
         return var_time
-
-
-
-
-
-
-

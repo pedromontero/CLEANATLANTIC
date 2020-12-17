@@ -26,6 +26,11 @@ from cleanatlantic.mohidhdf import MOHIDHDF
 
 
 def hdf2ds(hdf_file_name):
+    """
+    Return a xarray dataframe with data from a MOHID HDF file
+    :param hdf_file_name:
+    :return:
+    """
 
     var_name = 'velocity modulus'
 

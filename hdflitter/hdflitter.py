@@ -12,8 +12,8 @@
 * *license:* INTECMAR
 * *requires:* read_lag (UMO)
 * *date:* 2020/01/29
-* *version:* 0.0.5
-* *date version* 2020/03/03
+* *version:* 1.5.5
+* *date version* 2020/12/10
 
 """
 
@@ -24,10 +24,6 @@ from collections import OrderedDict
 import json
 
 import psycopg2
-
-from shapely.geometry import shape
-from shapely.geometry import Point
-from shapely import wkt
 
 from cleanatlantic.mohidhdf import MOHIDHDF
 from cleanatlantic.partic import Partic
@@ -121,10 +117,10 @@ def proceso(lag_file_full, data_inicio, data_fin, dt, db_con, orixe_name, buffer
 
     data_fin_intervalos = data_fin
 
-    age_pts = lag_file.get_var('BeachLitter', 'Age')
-    lat_pts = lag_file.get_beachlitter('BeachLitter', 'Latitude')
-    lon_pts = lag_file.get_beachlitter('BeachLitter', 'Longitude')
-    beach_time_2D = lag_file.get_beachlitter('BeachLitter', 'Beach_Time')
+    age_pts = lag_file.get_var('Results/BeachLitter', 'Age')
+    lat_pts = lag_file.get_var('Results/BeachLitter', 'Latitude')
+    lon_pts = lag_file.get_var('Results/BeachLitter', 'Longitude')
+    beach_time_2D = lag_file.get_var('Results/BeachLitter', 'Beach_Time')
     dy, n_partic = beach_time_2D.shape
     beach_time_pts = []
     for n in range(n_partic):

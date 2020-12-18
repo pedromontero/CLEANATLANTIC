@@ -17,7 +17,9 @@
 """
 
 from datetime import datetime, timedelta
-
+import sys
+import json
+from collections import OrderedDict
 import numpy as np
 import xarray
 import pandas as pd
@@ -68,14 +70,33 @@ def hdf2ds(hdf_file_name):
         attrs=dict(description="MOHID Hydrodynamic File"),
     )
 
-    ds = ds.transpose("lon", "lat","z","time")
+    ds = ds.transpose("lon", "lat", "z", "time")
     return ds
 
 
-def pegspeed():
+def pegspeed(input_json_file):
+    """
+    Calculate the velocity of litter from a csv and from MOHID output
 
-    hdf_file = '../hdf/MOHID_Hydrodynamic_Arousa_20190717_0000.hdf5'
-    csv_file = '20190718_1.csv'
+    :param input_json_file: str, input json file name
+    :return:
+    """
+
+    try:
+        with open(input_json_file, 'r') as f:
+            inputs = json.load(f, object_pairs_hook=OrderedDict)
+            csv_file = inputs['csv_file']
+            hdf_file = inputs['hdf_file']
+    except IOError:
+        sys.exit('An error occured trying to read the file.')
+    except KeyError:
+        sys.exit('An error with a key')
+    except ValueError:
+        sys.exit('Non-numeric data found in the file.')
+    except Exception as err:
+        print(err)
+        sys.exit("Error with the input sumlitter.json")
+
     df = pd.read_csv(csv_file)
 
     newdf = df[(df.drifter_name == "palillo 1") & (df.release_name == "primer lanzamento")]
@@ -89,6 +110,7 @@ def pegspeed():
         da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])
         print(da.modulo.values[0][0][0][0], row['date'])
 
-if __name__ == '__main__':
 
-    pegspeed()
+if __name__ == '__main__':
+    input_json = 'pegspeed.json'
+    pegspeed(input_json)

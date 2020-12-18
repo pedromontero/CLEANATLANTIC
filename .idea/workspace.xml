@@ -26,15 +26,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="just comment to test this branch">
-      <change afterPath="$PROJECT_DIR$/pegspeed/palillos/customize.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pegspeed/palillos/palillos.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pegspeed/palillos/palillos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pegspeed/20190718_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datos/in/20190718_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.py" afterDir="false" />
-    </list>
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="input data in a json file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,7 +167,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608192900533</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="palillos.py  added to the pegspeed folder">
+      <created>1608280248343</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608280248343</updated>
+    </task>
+    <task id="LOCAL-00009" summary="input data in a json file">
+      <created>1608280318108</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608280318108</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +203,8 @@
     <MESSAGE value=".gitignore" />
     <MESSAGE value="just comment" />
     <MESSAGE value="just comment to test this branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="just comment to test this branch" />
+    <MESSAGE value="palillos.py  added to the pegspeed folder" />
+    <MESSAGE value="input data in a json file" />
+    <option name="LAST_COMMIT_MESSAGE" value="input data in a json file" />
   </component>
 </project>

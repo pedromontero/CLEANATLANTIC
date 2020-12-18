@@ -1,0 +1,4 @@
+{
+  "csv_file": "../datos/in/20190718_1.csv",
+  "hdf_file":"../datos/hdf/MOHID_Hydrodynamic_Arousa_20190717_0000.hdf5"
+}

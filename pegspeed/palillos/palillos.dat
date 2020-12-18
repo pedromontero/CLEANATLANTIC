@@ -1,0 +1,3 @@
+#FILE_IN:: ../../datos/in/E20181115CLEANATLANTIC/E20181115CLEANATLANTIC_PARTE1.shp
+FILE_IN:: ../../datos/in/palillos.shp
+FILE_OUT:: ../../datos/out/test.shp

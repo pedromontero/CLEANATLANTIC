@@ -23,6 +23,8 @@ from collections import OrderedDict
 import numpy as np
 import xarray
 import pandas as pd
+from geopy.distance import geodesic
+
 
 from cleanatlantic.mohidhdf import MOHIDHDF
 
@@ -95,20 +97,38 @@ def pegspeed(input_json_file):
         sys.exit('Non-numeric data found in the file.')
     except Exception as err:
         print(err)
-        sys.exit("Error with the input sumlitter.json")
+        sys.exit("Error with the input pegspeed.json")
 
     df = pd.read_csv(csv_file)
 
+
     newdf = df[(df.drifter_name == "palillo 1") & (df.release_name == "primer lanzamento")]
+    newdf = newdf.sort_values(by='date')
     ds = hdf2ds(hdf_file)
-    print(ds)
+    n = 0
     for i, row in newdf.iterrows():
+
         lon_d = row['X']
         lat_d = row['Y']
         date_d = datetime.strptime(row['date'], "%Y/%m/%d %H:%M:%S")
-
         da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])
-        print(da.modulo.values[0][0][0][0], row['date'])
+        modulo_model = da.modulo.values[0][0][0][0]
+
+        if n > 0:
+
+            coords_1 = (former_lon, former_lat)
+            coords_2 = (lon_d, lat_d)
+            dist = geodesic(coords_1, coords_2).m
+            time = date_d - former_date
+            module_peg = dist/time.seconds
+            print(date_d, lat_d, lon_d, modulo_model, dist, time.seconds, module_peg)
+
+        former_lon = lon_d
+        former_lat = lat_d
+        former_date = date_d
+
+        n += 1
+
 
 
 if __name__ == '__main__':

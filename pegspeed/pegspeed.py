@@ -90,7 +90,7 @@ def pegspeed(input_json_file):
             csv_file = inputs['csv_file']
             hdf_file = inputs['hdf_file']
     except IOError:
-        sys.exit('An error occured trying to read the file.')
+        sys.exit('An error occurred trying to read the file.')
     except KeyError:
         sys.exit('An error with a key')
     except ValueError:
@@ -101,18 +101,21 @@ def pegspeed(input_json_file):
 
     df = pd.read_csv(csv_file)
 
-
     newdf = df[(df.drifter_name == "palillo 1") & (df.release_name == "primer lanzamento")]
     newdf = newdf.sort_values(by='date')
     ds = hdf2ds(hdf_file)
+    print(ds)
     n = 0
+    df_out = pd.DataFrame()
+    modules_model = []
+    modules_peg = []
     for i, row in newdf.iterrows():
 
         lon_d = row['X']
         lat_d = row['Y']
         date_d = datetime.strptime(row['date'], "%Y/%m/%d %H:%M:%S")
         da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])
-        modulo_model = da.modulo.values[0][0][0][0]
+        module_model = da.modulo.values[0][0][0][0]
 
         if n > 0:
 
@@ -121,7 +124,11 @@ def pegspeed(input_json_file):
             dist = geodesic(coords_1, coords_2).m
             time = date_d - former_date
             module_peg = dist/time.seconds
-            print(date_d, lat_d, lon_d, modulo_model, dist, time.seconds, module_peg)
+            modules_model.append(module_model)
+            modules_peg.append(module_peg)
+            print(date_d, lat_d, lon_d, module_model, dist, time.seconds, module_peg)
+
+
 
         former_lon = lon_d
         former_lat = lat_d
@@ -129,6 +136,10 @@ def pegspeed(input_json_file):
 
         n += 1
 
+    df_out['module_model'] = modules_model
+    df_out['module_peg'] = modules_peg
+
+    df_out.to_csv('df_out.csv')
 
 
 if __name__ == '__main__':

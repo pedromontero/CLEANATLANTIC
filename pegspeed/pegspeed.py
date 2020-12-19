@@ -29,14 +29,13 @@ from geopy.distance import geodesic
 from cleanatlantic.mohidhdf import MOHIDHDF
 
 
-def hdf2ds(hdf_file_name):
+def hdf2ds(hdf_file_name, var_name_list):
     """
     Return a xarray dataframe with data from a MOHID HDF file
-    :param hdf_file_name:
+    :param hdf_file_name: Path and file name of the HDF5 file
+    :param var_name_list: list of variables names in the HDF5 file
     :return:
     """
-
-    var_name = 'velocity modulus'
 
     hdf_file = MOHIDHDF(hdf_file_name)
     lat_in = hdf_file.latitudes
@@ -55,13 +54,14 @@ def hdf2ds(hdf_file_name):
         lon_med = 0.5 * (lon_in[i, 0] + lon_in[i+1, 0])
         lon.append(lon_med)
     times = hdf_file.times
-    var_time = hdf_file.get_var_time('Results', var_name)
+    data_vars_dict = {}
+    for var_name in var_name_list:
+        var_time = hdf_file.get_var_time('Results', var_name)
+        data_vars_dict[var_name] = (["time", "z", "lon", "lat"], var_time)
 
     k = np.array(range(0, len(var_time[0])))
     ds = xarray.Dataset(
-        data_vars=dict(
-            modulo=(["time", "z", "lon", "lat"], var_time),
-        ),
+        data_vars=data_vars_dict,
         coords=dict(
             lon=(["lon"], lon),
             lat=(["lat"], lat),
@@ -89,6 +89,7 @@ def pegspeed(input_json_file):
             inputs = json.load(f, object_pairs_hook=OrderedDict)
             csv_file = inputs['csv_file']
             hdf_file = inputs['hdf_file']
+            csv_out = inputs['csv_out']
     except IOError:
         sys.exit('An error occurred trying to read the file.')
     except KeyError:
@@ -101,24 +102,23 @@ def pegspeed(input_json_file):
 
     df = pd.read_csv(csv_file)
 
-    newdf = df[(df.drifter_name == "palillo 1") & (df.release_name == "primer lanzamento")]
-    newdf = newdf.sort_values(by='date')
-    ds = hdf2ds(hdf_file)
-    print(ds)
+    short_df = df[(df.drifter_name == "palillo 1") & (df.release_name == "primer lanzamento")]  # TODO: Cambiar esto por filtros genéricos
+    short_df = short_df.sort_values(by='date')
+
+    ds = hdf2ds(hdf_file, var_name_list=['velocity U', 'velocity V', 'velocity modulus'])
     n = 0
     df_out = pd.DataFrame()
     modules_model = []
     modules_peg = []
-    for i, row in newdf.iterrows():
-
+    for i, row in short_df.iterrows():
         lon_d = row['X']
         lat_d = row['Y']
         date_d = datetime.strptime(row['date'], "%Y/%m/%d %H:%M:%S")
-        da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])
-        module_model = da.modulo.values[0][0][0][0]
+        da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])  # TODO: Cambiar el valor z por uno generico
+        print(da)
+        module_model = da['velocity modulus'].values[0][0][0][0]
 
         if n > 0:
-
             coords_1 = (former_lon, former_lat)
             coords_2 = (lon_d, lat_d)
             dist = geodesic(coords_1, coords_2).m
@@ -139,7 +139,7 @@ def pegspeed(input_json_file):
     df_out['module_model'] = modules_model
     df_out['module_peg'] = modules_peg
 
-    df_out.to_csv('df_out.csv')
+    df_out.to_csv(csv_out)
 
 
 if __name__ == '__main__':

@@ -26,9 +26,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="Calculus of peg speed included in the script">
-      <change afterPath="$PROJECT_DIR$/pegspeed/regresion/solve.py" afterDir="false" />
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="linear regregresion test program">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -251,7 +251,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608288104117</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Several testes. Results are save in a csv">
+      <created>1608363685652</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1608363685652</updated>
+    </task>
+    <task id="LOCAL-00013" summary="linear regregresion test program">
+      <created>1608363705550</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608363705550</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,6 +291,8 @@
     <MESSAGE value="input data in a json file" />
     <MESSAGE value="project" />
     <MESSAGE value="Calculus of peg speed included in the script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calculus of peg speed included in the script" />
+    <MESSAGE value="Several testes. Results are save in a csv" />
+    <MESSAGE value="linear regregresion test program" />
+    <option name="LAST_COMMIT_MESSAGE" value="linear regregresion test program" />
   </component>
 </project>

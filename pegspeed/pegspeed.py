@@ -30,21 +30,24 @@ from cleanatlantic.mohidhdf import MOHIDHDF
 from math import pi,sqrt,atan2, sin, cos
 
 
-def uv2modtheta(u, v):
+def uv2modtheta(u, v, wind=False):
     """
     From u,v velocity components return module and bearing of current
     :param u: x-component of a current
     :param v: y- component of a current
     :return: module, direction
     """
-
+    if wind:
+        coef = -1
+    else:
+        coef = 1
     deg2rad = 180./pi
     mod = sqrt(u * u + v * v)
-    theta = atan2((-1) * u, (-1) * v) * deg2rad
+    theta = atan2(coef * u, coef * v) * deg2rad
     return mod, theta
 
 
-def modtheta2uv(mod, theta, wind='False'):
+def modtheta2uv(mod, theta, wind=False):
     """
     From module, bearing of a current return u,v velocity components
 
@@ -55,9 +58,9 @@ def modtheta2uv(mod, theta, wind='False'):
     :return: u,v components of the current
     """
     if wind:
-        coef = 1
-    else:
         coef = -1
+    else:
+        coef = 1
 
     rad2deg = pi / 180.
     u = coef * mod * sin(theta*rad2deg)
@@ -192,10 +195,10 @@ def pegspeed(input_json_file):
         former_date = date_d
         n += 1
 
-    df_out['module_peg'] = modules_peg
-    df_out['angle_peg'] = angles_peg
     df_out['u_peg'] = us_peg
     df_out['v_peg'] = vs_peg
+    df_out['module_peg'] = modules_peg
+    df_out['angle_peg'] = angles_peg
     df_out.to_csv(csv_out)
     df_out.to_excel('out.xlsx')
 

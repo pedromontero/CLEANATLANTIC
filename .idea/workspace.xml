@@ -26,11 +26,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="csv output includes date, X, Y and all the variables of the model">
-      <change afterPath="$PROJECT_DIR$/pegspeed/tests/geo_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datos/in/20190718_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datos/in/20190718_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="se corrige un error en el uso de geopy">
       <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +70,7 @@
       <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\pegspeed\palillos" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.geo_test">
+  <component name="RunManager" selected="Python.pegspeed">
     <configuration name="geo_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CLEANATLANTIC" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -182,8 +178,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.geo_test" />
         <item itemvalue="Python.pegspeed" />
+        <item itemvalue="Python.geo_test" />
         <item itemvalue="Python.solve" />
         <item itemvalue="Python.linearregression()" />
         <item itemvalue="Python.palillos" />
@@ -304,7 +300,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608445960519</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="test de la libreria geographiclib para ver como devuelve el angulo">
+      <created>1608452940418</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1608452940418</updated>
+    </task>
+    <task id="LOCAL-00017" summary="se corrige un error en el uso de geopy">
+      <created>1608453023479</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1608453023479</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,6 +344,8 @@
     <MESSAGE value="linear regregresion test program" />
     <MESSAGE value="hsf2ds admits a list of variables" />
     <MESSAGE value="csv output includes date, X, Y and all the variables of the model" />
-    <option name="LAST_COMMIT_MESSAGE" value="csv output includes date, X, Y and all the variables of the model" />
+    <MESSAGE value="test de la libreria geographiclib para ver como devuelve el angulo" />
+    <MESSAGE value="se corrige un error en el uso de geopy" />
+    <option name="LAST_COMMIT_MESSAGE" value="se corrige un error en el uso de geopy" />
   </component>
 </project>

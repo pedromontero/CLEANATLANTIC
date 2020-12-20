@@ -23,7 +23,7 @@ from collections import OrderedDict
 import numpy as np
 import xarray
 import pandas as pd
-from geopy.distance import geodesic
+
 from geographiclib.geodesic import Geodesic
 
 
@@ -135,16 +135,12 @@ def pegspeed(input_json_file):
             for var_name in var_name_list:
                 row_out[var_name] = da[var_name].values[0][0][0][0]
             df_out = df_out.append(row_out, ignore_index=True)
-            coords_1 = (former_lat, former_lon)
-            coords_2 = (lat_d, lon_d)
-            dist = geodesic(coords_1, coords_2).m
+            geodesic = Geodesic.WGS84.Inverse(former_lat, former_lon, lat_d, lon_d)
+            dist = geodesic['s12']
             time = date_d - former_date
             module_peg = dist/time.seconds
-            distt = Geodesic.WGS84.Inverse(former_lat, former_lon, lat_d, lon_d)
-
             modules_peg.append(module_peg)
             print(date_d, lat_d, lon_d, dist, time.seconds, module_peg)
-            print(distt)
 
         former_lon = lon_d
         former_lat = lat_d

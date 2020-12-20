@@ -24,6 +24,9 @@ import numpy as np
 import xarray
 import pandas as pd
 from geopy.distance import geodesic
+from geographiclib.geodesic import Geodesic
+
+
 
 
 from cleanatlantic.mohidhdf import MOHIDHDF
@@ -102,7 +105,7 @@ def pegspeed(input_json_file):
 
     df = pd.read_csv(csv_file)
 
-    short_df = df[(df.drifter_name == "palillo 1") & (df.release_name == "primer lanzamento")]  # TODO: Cambiar esto por filtros genéricos
+    short_df = df[(df.drifter_name == "palillo 1")]  # TODO: Cambiar esto por filtros genéricos
     short_df = short_df.sort_values(by='date')
 
     var_name_list = ['velocity U', 'velocity V', 'velocity modulus']
@@ -123,23 +126,25 @@ def pegspeed(input_json_file):
         date_d = datetime.strptime(row['date'], "%Y/%m/%d %H:%M:%S")
         da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])  # TODO: Cambiar el valor z por uno generico
 
-        if n > 0:
+        if n > 0:  # Because it is necessary consider de interval between 2 points to calculate the peg speed
+                   # TODO: La velocidad del modelo debe ser la del punto medio para compararla con la de los palillos
             row_out = {}
             row_out['Date'] = date_d
             row_out['X'] = lon_d
             row_out['Y'] = lat_d
             for var_name in var_name_list:
                 row_out[var_name] = da[var_name].values[0][0][0][0]
-
             df_out = df_out.append(row_out, ignore_index=True)
-            coords_1 = (former_lon, former_lat)
-            coords_2 = (lon_d, lat_d)
+            coords_1 = (former_lat, former_lon)
+            coords_2 = (lat_d, lon_d)
             dist = geodesic(coords_1, coords_2).m
             time = date_d - former_date
             module_peg = dist/time.seconds
+            distt = Geodesic.WGS84.Inverse(former_lat, former_lon, lat_d, lon_d)
 
             modules_peg.append(module_peg)
             print(date_d, lat_d, lon_d, dist, time.seconds, module_peg)
+            print(distt)
 
         former_lon = lon_d
         former_lat = lat_d
@@ -150,6 +155,7 @@ def pegspeed(input_json_file):
 
     df_out['module_peg'] = modules_peg
     df_out.to_csv(csv_out)
+    df_out.to_excel('out.xlsx')
 
 
 if __name__ == '__main__':

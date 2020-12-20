@@ -105,30 +105,41 @@ def pegspeed(input_json_file):
     short_df = df[(df.drifter_name == "palillo 1") & (df.release_name == "primer lanzamento")]  # TODO: Cambiar esto por filtros genéricos
     short_df = short_df.sort_values(by='date')
 
-    ds = hdf2ds(hdf_file, var_name_list=['velocity U', 'velocity V', 'velocity modulus'])
+    var_name_list = ['velocity U', 'velocity V', 'velocity modulus']
+    ds = hdf2ds(hdf_file, var_name_list)
     n = 0
     df_out = pd.DataFrame()
-    modules_model = []
+    df_out['Date'] = []
+    df_out['X'] = []
+    df_out['Y'] = []
+    for var_name in var_name_list:
+        df_out[var_name] = []
+
     modules_peg = []
+
     for i, row in short_df.iterrows():
         lon_d = row['X']
         lat_d = row['Y']
         date_d = datetime.strptime(row['date'], "%Y/%m/%d %H:%M:%S")
         da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])  # TODO: Cambiar el valor z por uno generico
-        print(da)
-        module_model = da['velocity modulus'].values[0][0][0][0]
 
         if n > 0:
+            row_out = {}
+            row_out['Date'] = date_d
+            row_out['X'] = lon_d
+            row_out['Y'] = lat_d
+            for var_name in var_name_list:
+                row_out[var_name] = da[var_name].values[0][0][0][0]
+
+            df_out = df_out.append(row_out, ignore_index=True)
             coords_1 = (former_lon, former_lat)
             coords_2 = (lon_d, lat_d)
             dist = geodesic(coords_1, coords_2).m
             time = date_d - former_date
             module_peg = dist/time.seconds
-            modules_model.append(module_model)
+
             modules_peg.append(module_peg)
-            print(date_d, lat_d, lon_d, module_model, dist, time.seconds, module_peg)
-
-
+            print(date_d, lat_d, lon_d, dist, time.seconds, module_peg)
 
         former_lon = lon_d
         former_lat = lat_d
@@ -136,9 +147,8 @@ def pegspeed(input_json_file):
 
         n += 1
 
-    df_out['module_model'] = modules_model
-    df_out['module_peg'] = modules_peg
 
+    df_out['module_peg'] = modules_peg
     df_out.to_csv(csv_out)
 
 

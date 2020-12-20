@@ -26,10 +26,43 @@ import pandas as pd
 
 from geographiclib.geodesic import Geodesic
 
-
-
-
 from cleanatlantic.mohidhdf import MOHIDHDF
+from math import pi,sqrt,atan2, sin, cos
+
+
+def uv2modtheta(u, v):
+    """
+    From u,v velocity components return module and bearing of current
+    :param u: x-component of a current
+    :param v: y- component of a current
+    :return: module, direction
+    """
+
+    deg2rad = 180./pi
+    mod = sqrt(u * u + v * v)
+    theta = atan2((-1) * u, (-1) * v) * deg2rad
+    return mod, theta
+
+
+def modtheta2uv(mod, theta, wind='False'):
+    """
+    From module, bearing of a current return u,v velocity components
+
+
+    :param mod: module of a current
+    :param theta: angle of a current
+    :param wind: for current or wind(True)
+    :return: u,v components of the current
+    """
+    if wind:
+        coef = 1
+    else:
+        coef = -1
+
+    rad2deg = pi / 180.
+    u = coef * mod * sin(theta*rad2deg)
+    v = coef * mod * cos(theta*rad2deg)
+    return u, v
 
 
 def hdf2ds(hdf_file_name, var_name_list):
@@ -119,6 +152,9 @@ def pegspeed(input_json_file):
         df_out[var_name] = []
 
     modules_peg = []
+    angles_peg = []
+    us_peg = []
+    vs_peg = []
 
     for i, row in short_df.iterrows():
         lon_d = row['X']
@@ -137,19 +173,29 @@ def pegspeed(input_json_file):
             df_out = df_out.append(row_out, ignore_index=True)
             geodesic = Geodesic.WGS84.Inverse(former_lat, former_lon, lat_d, lon_d)
             dist = geodesic['s12']
+            # angle
+            if geodesic['azi1'] < 0:
+                angle_peg = 360 + geodesic['azi1']
+            else:
+                angle_peg = geodesic['azi1']
             time = date_d - former_date
             module_peg = dist/time.seconds
+            u_peg, v_peg = modtheta2uv(module_peg, angle_peg)
             modules_peg.append(module_peg)
-            print(date_d, lat_d, lon_d, dist, time.seconds, module_peg)
+            angles_peg.append(angle_peg)
+            us_peg.append(u_peg)
+            vs_peg.append(v_peg)
+            print(date_d, lat_d, lon_d, dist, time.seconds, module_peg, angle_peg, u_peg, v_peg)
 
         former_lon = lon_d
         former_lat = lat_d
         former_date = date_d
-
         n += 1
 
-
     df_out['module_peg'] = modules_peg
+    df_out['angle_peg'] = angles_peg
+    df_out['u_peg'] = us_peg
+    df_out['v_peg'] = vs_peg
     df_out.to_csv(csv_out)
     df_out.to_excel('out.xlsx')
 

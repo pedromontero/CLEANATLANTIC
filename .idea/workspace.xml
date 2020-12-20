@@ -26,7 +26,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="se corrige un error en el uso de geopy">
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="geopy lib is removed and geographiclib included, because of to calculate azimuth&#10;Excel output is included but not in input words">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -314,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608453023479</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="geopy lib is removed and geographiclib included, because of to calculate azimuth&#10;Excel output is included but not in input words">
+      <created>1608453388565</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1608453388565</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,6 +354,7 @@
     <MESSAGE value="csv output includes date, X, Y and all the variables of the model" />
     <MESSAGE value="test de la libreria geographiclib para ver como devuelve el angulo" />
     <MESSAGE value="se corrige un error en el uso de geopy" />
-    <option name="LAST_COMMIT_MESSAGE" value="se corrige un error en el uso de geopy" />
+    <MESSAGE value="geopy lib is removed and geographiclib included, because of to calculate azimuth&#10;Excel output is included but not in input words" />
+    <option name="LAST_COMMIT_MESSAGE" value="geopy lib is removed and geographiclib included, because of to calculate azimuth&#10;Excel output is included but not in input words" />
   </component>
 </project>

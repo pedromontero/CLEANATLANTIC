@@ -26,9 +26,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="uv2modtheta(u,v) and modtheta2uv() debug">
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -337,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608481059704</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;">
+      <created>1608534144286</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1608534144286</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -372,6 +378,7 @@
     <MESSAGE value="geopy lib is removed and geographiclib included, because of to calculate azimuth&#10;Excel output is included but not in input words" />
     <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() functions included.&#10;u,v of the pegs is included in the output" />
     <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="uv2modtheta(u,v) and modtheta2uv() debug" />
+    <MESSAGE value="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;" />
   </component>
 </project>

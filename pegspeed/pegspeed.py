@@ -33,8 +33,10 @@ from math import pi, sqrt, atan2, sin, cos
 def uv2modtheta(u, v, wind=False):
     """
     From u,v velocity components return module and bearing of current
+
     :param u: x-component of a current
     :param v: y- component of a current
+    :param wind: for current or wind(True)
     :return: module, direction
     """
     if wind:
@@ -50,7 +52,6 @@ def uv2modtheta(u, v, wind=False):
 def modtheta2uv(mod, theta, wind=False):
     """
     From module, bearing of a current return u,v velocity components
-
 
     :param mod: module of a current
     :param theta: angle of a current
@@ -146,7 +147,7 @@ def pegspeed(input_json_file):
     df = pd.read_csv(csv_file)
 
     short_df = df[(df.drifter_name == "palillo 1")]  # TODO: Cambiar esto por filtros genéricos
-    short_df = short_df.sort_values(by='date')
+    short_df = short_df.sort_values(by='date')  # TODO: No funciona si escoges varios items en el anterior filtro
 
     var_name_list = ['velocity U', 'velocity V', 'velocity modulus']
     ds = hdf2ds(hdf_file, var_name_list)

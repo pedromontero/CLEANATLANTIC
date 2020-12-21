@@ -26,7 +26,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="uv2modtheta(u,v) and modtheta2uv() functions included.&#10;u,v of the pegs is included in the output">
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="uv2modtheta(u,v) and modtheta2uv() debug">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -328,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608480391032</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="uv2modtheta(u,v) and modtheta2uv() debug">
+      <created>1608481059704</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1608481059704</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -362,6 +371,7 @@
     <MESSAGE value="se corrige un error en el uso de geopy" />
     <MESSAGE value="geopy lib is removed and geographiclib included, because of to calculate azimuth&#10;Excel output is included but not in input words" />
     <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() functions included.&#10;u,v of the pegs is included in the output" />
-    <option name="LAST_COMMIT_MESSAGE" value="uv2modtheta(u,v) and modtheta2uv() functions included.&#10;u,v of the pegs is included in the output" />
+    <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="uv2modtheta(u,v) and modtheta2uv() debug" />
   </component>
 </project>

@@ -27,7 +27,7 @@ import pandas as pd
 from geographiclib.geodesic import Geodesic
 
 from cleanatlantic.mohidhdf import MOHIDHDF
-from math import pi,sqrt,atan2, sin, cos
+from math import pi, sqrt, atan2, sin, cos
 
 
 def uv2modtheta(u, v, wind=False):
@@ -73,7 +73,7 @@ def hdf2ds(hdf_file_name, var_name_list):
     Return a xarray dataframe with data from a MOHID HDF file
     :param hdf_file_name: Path and file name of the HDF5 file
     :param var_name_list: list of variables names in the HDF5 file
-    :return:
+    :return: a xarray dataframe with data from a MOHID HDF file
     """
 
     hdf_file = MOHIDHDF(hdf_file_name)
@@ -123,12 +123,16 @@ def pegspeed(input_json_file):
     :return:
     """
 
+    xls_out_on = False
     try:
         with open(input_json_file, 'r') as f:
             inputs = json.load(f, object_pairs_hook=OrderedDict)
             csv_file = inputs['csv_file']
             hdf_file = inputs['hdf_file']
             csv_out = inputs['csv_out']
+            if 'xls_out' in inputs:
+                xls_out_on = True
+                xls_out = inputs['xls_out']
     except IOError:
         sys.exit('An error occurred trying to read the file.')
     except KeyError:
@@ -167,10 +171,7 @@ def pegspeed(input_json_file):
 
         if n > 0:  # Because it is necessary consider de interval between 2 points to calculate the peg speed
                    # TODO: La velocidad del modelo debe ser la del punto medio para compararla con la de los palillos
-            row_out = {}
-            row_out['Date'] = date_d
-            row_out['X'] = lon_d
-            row_out['Y'] = lat_d
+            row_out = {'Date': date_d, 'X': lon_d, 'Y': lat_d}
             for var_name in var_name_list:
                 row_out[var_name] = da[var_name].values[0][0][0][0]
             df_out = df_out.append(row_out, ignore_index=True)
@@ -200,7 +201,8 @@ def pegspeed(input_json_file):
     df_out['module_peg'] = modules_peg
     df_out['angle_peg'] = angles_peg
     df_out.to_csv(csv_out)
-    df_out.to_excel('out.xlsx')
+    if xls_out_on:
+        df_out.to_excel(xls_out)
 
 
 if __name__ == '__main__':

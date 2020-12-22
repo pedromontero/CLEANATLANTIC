@@ -26,9 +26,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;">
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pegspeed/palillos/customize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pegspeed/palillos/palillos.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pegspeed/palillos/palillos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,10 +183,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.pegspeed" />
-        <item itemvalue="Python.geo_test" />
         <item itemvalue="Python.solve" />
-        <item itemvalue="Python.linearregression()" />
         <item itemvalue="Python.palillos" />
+        <item itemvalue="Python.linearregression()" />
+        <item itemvalue="Python.geo_test" />
       </list>
     </recent_temporary>
   </component>

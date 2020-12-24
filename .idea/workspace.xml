@@ -26,11 +26,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="minor changes">
-      <change afterPath="$PROJECT_DIR$/cleanatlantic/findxy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/windspeed/windspeed.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/windspeed/windspeed.py" afterDir="false" />
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="miWindspeed finished.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="windspeed" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,7 +78,7 @@
       <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\pegspeed\palillos" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.windspeed">
+  <component name="RunManager" selected="Python.pegspeed">
     <configuration name="linearregression()" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CLEANATLANTIC" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -188,8 +186,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.windspeed" />
         <item itemvalue="Python.pegspeed" />
+        <item itemvalue="Python.windspeed" />
         <item itemvalue="Python.solve" />
         <item itemvalue="Python.palillos" />
         <item itemvalue="Python.linearregression()" />
@@ -352,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608534144286</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="miWindspeed finished.">
+      <created>1608727271336</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1608727271336</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -360,7 +365,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -388,6 +405,7 @@
     <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() functions included.&#10;u,v of the pegs is included in the output" />
     <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() debug" />
     <MESSAGE value="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;" />
+    <MESSAGE value="miWindspeed finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="miWindspeed finished." />
   </component>
 </project>

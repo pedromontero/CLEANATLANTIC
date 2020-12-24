@@ -134,6 +134,7 @@ def pegspeed(input_json_file):
             if 'xls_out' in inputs:
                 xls_out_on = True
                 xls_out = inputs['xls_out']
+            level = inputs['level']
     except IOError:
         sys.exit('An error occurred trying to read the file.')
     except KeyError:
@@ -168,7 +169,7 @@ def pegspeed(input_json_file):
         lon_d = row['X']
         lat_d = row['Y']
         date_d = datetime.strptime(row['date'], "%Y/%m/%d %H:%M:%S")
-        da = ds.interp(lon=[lon_d], lat=[lat_d], z=[33], time=[date_d])  # TODO: Cambiar el valor z por uno generico
+        da = ds.interp(lon=[lon_d], lat=[lat_d], z=[level], time=[date_d])
 
         if n > 0:  # Because it is necessary consider de interval between 2 points to calculate the peg speed
                    # TODO: La velocidad del modelo debe ser la del punto medio para compararla con la de los palillos

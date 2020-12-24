@@ -1,6 +1,7 @@
 {
-  "csv_file": "../datos/in/20190718_1.csv",
-  "hdf_file":"../datos/hdf/MOHID_Hydrodynamic_Arousa_20190717_0000.hdf5",
-  "csv_out": "./regresion/df_out.csv",
-  "xls_out": "./regresion/df_out.xlsx"
+  "csv_file": "../datos/in/20181115_1.csv",
+  "hdf_file":"../datos/hdf/MOHID_Hydrodynamic_Arousa_20181114_0000.hdf5",
+  "csv_out": "./regresion/df_out_20181115_1.csv",
+  "xls_out": "./regresion/df_out_20181115_1.xlsx",
+  "level": 17
 }

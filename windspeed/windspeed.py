@@ -17,10 +17,13 @@ creates a timeserie with the inferiorleft node of the model nearest to that poin
 
 """
 
-from datetime import datetime, timedelta
+
 import sys
 import json
 from collections import OrderedDict
+
+from datetime import datetime
+import dateutil.parser
 
 import xarray
 import pandas as pd
@@ -75,7 +78,8 @@ def windspeed(input_json_file):
     for i, row in df.iterrows():
         lon_d = row['X']
         lat_d = row['Y']
-        date_d = datetime.strptime(row['date'], "%d/%m/%Y %H:%M")
+        date_d = dateutil.parser.parse(row['date'])
+        #date_d = datetime.strptime(date_prov, "%Y/%m/%d %H:%M:%S")
         c = find_ij_2d(lat_d, lon_d, lat, lon)
         i_model, j_model = c[0][0], c[0][1]
 

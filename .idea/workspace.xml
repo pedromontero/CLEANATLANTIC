@@ -26,9 +26,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="miWindspeed finished.">
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="pegspeed, you can choose level">
+      <change afterPath="$PROJECT_DIR$/datos/in/20190718_1_palillo1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanatlantic/findxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanatlantic/findxy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windspeed/windspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/windspeed/windspeed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windspeed/windspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/windspeed/windspeed.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,14 +64,16 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cleanatlantic" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/datos/in" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\datos\in" />
       <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\cleanatlantic" />
       <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\windspeed" />
     </key>
@@ -78,7 +84,7 @@
       <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\pegspeed\palillos" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.pegspeed">
+  <component name="RunManager" selected="Python.windspeed">
     <configuration name="linearregression()" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CLEANATLANTIC" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -186,8 +192,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.pegspeed" />
         <item itemvalue="Python.windspeed" />
+        <item itemvalue="Python.pegspeed" />
         <item itemvalue="Python.solve" />
         <item itemvalue="Python.palillos" />
         <item itemvalue="Python.linearregression()" />
@@ -357,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608727271336</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="pegspeed, you can choose level">
+      <created>1608791149220</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1608791149220</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,6 +419,7 @@
     <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() debug" />
     <MESSAGE value="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;" />
     <MESSAGE value="miWindspeed finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="miWindspeed finished." />
+    <MESSAGE value="pegspeed, you can choose level" />
+    <option name="LAST_COMMIT_MESSAGE" value="pegspeed, you can choose level" />
   </component>
 </project>

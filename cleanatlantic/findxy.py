@@ -234,7 +234,7 @@ def find_ij_2d(lat0, lon0, lat, lon):
 
             poly_list = [poly1, poly2]
 
-        elif testJ and not testI:
+        elif test_j and not test_i:
 
             jmed = jmin + int((jmax - jmin) * .5)
 

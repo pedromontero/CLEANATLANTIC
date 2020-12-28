@@ -1,6 +1,6 @@
 {
-  "csv_file": "../datos/in/20190718_1_palillo1.csv",
-  "nc_file":"../datos/WRF/wrf_arw_det1km_history_d05_20190718_0000.nc4",
+  "csv_file": "../datos/in/20181115_palillo1.csv",
+  "nc_file":"../datos/WRF/wrf_arw_det1km_history_d05_20181115_0000.nc4",
   "csv_out": "./df_out.csv",
   "xls_out": "./df_out.xlsx"
 }

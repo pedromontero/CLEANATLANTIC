@@ -19,7 +19,7 @@ print(clt.coef_)
 print(clt.intercept_)
 
 
-plt.scatter(X[:, 0] ,y[:, 0], c='blue')
+plt.scatter(X[:, 0],y[:, 0], c='blue')
 
 plt.plot(X[:, 0], y_pred[:, 0], color='blue', linewidth=3)
 

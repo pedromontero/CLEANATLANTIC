@@ -26,13 +26,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="pegspeed, you can choose level">
-      <change afterPath="$PROJECT_DIR$/datos/in/20190718_1_palillo1.csv" afterDir="false" />
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="windspeed can parse different date formats in csv">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanatlantic/findxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanatlantic/findxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pegspeed/pegspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/pegspeed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pegspeed/regresion/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/pegspeed/regresion/solve.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/windspeed/windspeed.json" beforeDir="false" afterPath="$PROJECT_DIR$/windspeed/windspeed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windspeed/windspeed.py" beforeDir="false" afterPath="$PROJECT_DIR$/windspeed/windspeed.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608791149220</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="windspeed can parse different date formats in csv">
+      <created>1608973664550</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1608973664551</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,6 +424,7 @@
     <MESSAGE value="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;" />
     <MESSAGE value="miWindspeed finished." />
     <MESSAGE value="pegspeed, you can choose level" />
-    <option name="LAST_COMMIT_MESSAGE" value="pegspeed, you can choose level" />
+    <MESSAGE value="windspeed can parse different date formats in csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="windspeed can parse different date formats in csv" />
   </component>
 </project>

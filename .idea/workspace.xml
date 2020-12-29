@@ -26,15 +26,46 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="just comment">
-      <change beforePath="$PROJECT_DIR$/cleanatlantic/mohidhdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanatlantic/mohidhdf.py" afterDir="false" />
+    <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="insertorde has its own folder">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/acu2graf.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/acu2graf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/customize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/read_lag.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/conta.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/contalag.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/contalag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/downloadhdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/downloadhdf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo_pg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo_pg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo_pg.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo_pg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo_pg_24.dat" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo_pg_24.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo_pg_24.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo_pg_24.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdflag2shp.dat" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdflag2shp.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/leuvHDF5.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/revisar/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="pegspeed" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="windspeed" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lkwuC5glVIAnMp0QAGzE9jHYtM" />
@@ -44,8 +75,143 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/datos" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\datos" />
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\datos\in" />
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\cleanatlantic" />
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\windspeed" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\stuff" />
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\insertorde" />
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\pegspeed\regresion" />
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\datos\in" />
+      <recent name="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\datos" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.windspeed">
+    <configuration name="linearregression()" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CLEANATLANTIC" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pegspeed" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pegspeed/linearregression().py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="palillos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CLEANATLANTIC" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pegspeed/palillos" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pegspeed/palillos/palillos.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pegspeed" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CLEANATLANTIC" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pegspeed" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pegspeed/pegspeed.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="solve" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CLEANATLANTIC" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pegspeed" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\UsrXModel1\OneDrive - INTECMAR\02_TRABALLO\02_PYTHON\UMOPY\CLEANATLANTIC\pegspeed\regresion\solve.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="windspeed" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CLEANATLANTIC" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/windspeed" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/windspeed/windspeed.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.windspeed" />
+        <item itemvalue="Python.pegspeed" />
+        <item itemvalue="Python.solve" />
+        <item itemvalue="Python.palillos" />
+        <item itemvalue="Python.linearregression()" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -98,7 +264,140 @@
       <option name="project" value="LOCAL" />
       <updated>1608155221340</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="just comment to test this branch">
+      <created>1608192900533</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608192900533</updated>
+    </task>
+    <task id="LOCAL-00008" summary="palillos.py  added to the pegspeed folder">
+      <created>1608280248343</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608280248343</updated>
+    </task>
+    <task id="LOCAL-00009" summary="input data in a json file">
+      <created>1608280318108</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608280318108</updated>
+    </task>
+    <task id="LOCAL-00010" summary="project">
+      <created>1608280462645</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608280462645</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Calculus of peg speed included in the script">
+      <created>1608288104117</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608288104117</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Several testes. Results are save in a csv">
+      <created>1608363685652</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1608363685652</updated>
+    </task>
+    <task id="LOCAL-00013" summary="linear regregresion test program">
+      <created>1608363705550</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608363705550</updated>
+    </task>
+    <task id="LOCAL-00014" summary="hsf2ds admits a list of variables">
+      <created>1608367040605</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1608367040605</updated>
+    </task>
+    <task id="LOCAL-00015" summary="csv output includes date, X, Y and all the variables of the model">
+      <created>1608445960519</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1608445960519</updated>
+    </task>
+    <task id="LOCAL-00016" summary="test de la libreria geographiclib para ver como devuelve el angulo">
+      <created>1608452940418</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1608452940418</updated>
+    </task>
+    <task id="LOCAL-00017" summary="se corrige un error en el uso de geopy">
+      <created>1608453023479</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1608453023479</updated>
+    </task>
+    <task id="LOCAL-00018" summary="geopy lib is removed and geographiclib included, because of to calculate azimuth&#10;Excel output is included but not in input words">
+      <created>1608453388565</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1608453388565</updated>
+    </task>
+    <task id="LOCAL-00019" summary="uv2modtheta(u,v) and modtheta2uv() functions included.&#10;u,v of the pegs is included in the output">
+      <created>1608480391032</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1608480391032</updated>
+    </task>
+    <task id="LOCAL-00020" summary="uv2modtheta(u,v) and modtheta2uv() debug">
+      <created>1608481059704</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1608481059704</updated>
+    </task>
+    <task id="LOCAL-00021" summary="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;">
+      <created>1608534144286</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1608534144286</updated>
+    </task>
+    <task id="LOCAL-00022" summary="miWindspeed finished.">
+      <created>1608727271336</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1608727271336</updated>
+    </task>
+    <task id="LOCAL-00023" summary="pegspeed, you can choose level">
+      <created>1608791149220</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1608791149220</updated>
+    </task>
+    <task id="LOCAL-00024" summary="windspeed can parse different date formats in csv">
+      <created>1608973664550</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1608973664551</updated>
+    </task>
+    <task id="LOCAL-00025" summary="insertorde has its own folder">
+      <created>1609150497896</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1609150497897</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -112,7 +411,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/dev" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
@@ -123,6 +422,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mohidhdf comments" />
@@ -130,12 +430,25 @@
     <MESSAGE value=".idea" />
     <MESSAGE value=".gitignore" />
     <MESSAGE value="just comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="just comment" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1608155226892">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1608155226892" />
+    <MESSAGE value="just comment to test this branch" />
+    <MESSAGE value="palillos.py  added to the pegspeed folder" />
+    <MESSAGE value="input data in a json file" />
+    <MESSAGE value="project" />
+    <MESSAGE value="Calculus of peg speed included in the script" />
+    <MESSAGE value="Several testes. Results are save in a csv" />
+    <MESSAGE value="linear regregresion test program" />
+    <MESSAGE value="hsf2ds admits a list of variables" />
+    <MESSAGE value="csv output includes date, X, Y and all the variables of the model" />
+    <MESSAGE value="test de la libreria geographiclib para ver como devuelve el angulo" />
+    <MESSAGE value="se corrige un error en el uso de geopy" />
+    <MESSAGE value="geopy lib is removed and geographiclib included, because of to calculate azimuth&#10;Excel output is included but not in input words" />
+    <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() functions included.&#10;u,v of the pegs is included in the output" />
+    <MESSAGE value="uv2modtheta(u,v) and modtheta2uv() debug" />
+    <MESSAGE value="output in excel is optional and controlled by json input:&#10;&quot;xls_out&quot;: &quot;excel file name&quot;" />
+    <MESSAGE value="miWindspeed finished." />
+    <MESSAGE value="pegspeed, you can choose level" />
+    <MESSAGE value="windspeed can parse different date formats in csv" />
+    <MESSAGE value="insertorde has its own folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="insertorde has its own folder" />
   </component>
 </project>

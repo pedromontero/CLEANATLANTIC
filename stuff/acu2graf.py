@@ -115,11 +115,7 @@ def main():
         """
 
 
-    database_data = {'host': 'svr_dev_1',
-                    'port': '5432',
-                    'dbname': 'CleanAtlantic',
-                    'user': 'postgres',
-                    'password': '986512320'}
+    database_data = {}
 
     # End static configuration
 

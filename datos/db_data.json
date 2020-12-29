@@ -1,4 +1,3 @@
-
 {"host": "host name",
   "port": "5432",
   "dbname": "Database name",

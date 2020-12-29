@@ -32,5 +32,3 @@ results into the same db.
   
 
 - **stuff:** Folder with old code
-
-

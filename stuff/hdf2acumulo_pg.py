@@ -98,11 +98,11 @@ def main():
     #
     # CHANGE IF NEEDED
 
-    database_data = {'host': 'svr_dev_1',
+    database_data = {'host': 'xxx',
                     'port': '5432',
-                    'dbname': 'CleanAtlantic',
-                    'user': 'postgres',
-                    'password': '986512320'}
+                    'dbname': 'xx',
+                    'user': 'xxx',
+                    'password': 'xxx'}
 
     # End static configuration
 

@@ -5,22 +5,30 @@ AIM:
 ----
 The main goal of these programs is to count the beaching particles of the outputs of MOHID Langrangian model (old version) and insert in segments of coastlines. These segments are stored in PostGIS database.
 
-Cambios:
+SCRIPTS:
 --------
 
-20201207
-********
+- **hdflitter:** Count particles from a HDF5 MOHID Lagrangian file with LITTER option into
+each poligon of a buffer stored in a CleanAtlantic Database, and insert the
+results into the same db.
+  
+  
+- **insertbuffer:** Insert origin, buffers and poligons reading a shapefile. It is  old fashion code
 
-O proxecto actual funcionando de CleanAtlantic está no cartafol trunk. Ten un cartafol revisar que hai que tentar borrar.
 
-O cartafol trunk ten os seguintes programas:
+- **insertorde:** Insert a order table for some polygons of a buffer.
 
-* acu2graf.py: programa sucio para crear os "termogramas" de acúmulos
-* hdflitter.py: programa que conta as partículas de unha saida hdf5 e que están dentro de un buffer.
-* hdflitter_agrega: programa que acumula días de cantidades que están dentro de un buffer na base de datos.
-* insertbuffer.py: Inserta un buffer na base de datos a partir de un shapefile
-* insertorde.py: engade unha táboa de ordenamento dos buffers.
-* pegspeed.py: Read a hdf5 file and get the value of velocity on points and times from a csv dataframe
 
-Estoy facendo unha restructuración e limpeza do código, e cada programa vai ir no seu cartafol. Por agora xa empecei con 
-hdflitter.py, and pegspeed.py
+- **pegspeed:** Calculate the velocity of a peg, and the velocitiy from a MOHID Hydrodynamic
+  output on the peg spots, and save the results in csv and xlsx format
+  
+
+- **windspeed:** Read a WRF output of wind and save the lefdown node matching the locations
+  from a CSV file.
+  
+
+- **cleanatlantic:** Some libs for deal with buffers and partics, read mohid hdf files,
+  and find ij from a lat, lon position
+  
+
+- **stuff:** Folder with old code

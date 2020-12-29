@@ -27,23 +27,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e096afa6-93f8-4429-9508-5cff4e1f3f7c" name="Default Changelist" comment="insertorde has its own folder">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/acu2graf.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/acu2graf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/customize.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/read_lag.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/conta.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/contalag.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/contalag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/downloadhdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/downloadhdf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo_pg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo_pg.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo_pg.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo_pg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo_pg_24.dat" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo_pg_24.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdf2acumulo_pg_24.py" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdf2acumulo_pg_24.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/hdflag2shp.dat" beforeDir="false" afterPath="$PROJECT_DIR$/stuff/hdflag2shp.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/leuvHDF5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/revisar/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,7 +381,28 @@
       <option name="project" value="LOCAL" />
       <updated>1609150497897</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="clean code">
+      <created>1609245980645</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1609245980645</updated>
+    </task>
+    <task id="LOCAL-00027" summary="clean code">
+      <created>1609246059937</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1609246059937</updated>
+    </task>
+    <task id="LOCAL-00028" summary="clean code">
+      <created>1609246110315</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1609246110315</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -449,6 +454,7 @@
     <MESSAGE value="pegspeed, you can choose level" />
     <MESSAGE value="windspeed can parse different date formats in csv" />
     <MESSAGE value="insertorde has its own folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="insertorde has its own folder" />
+    <MESSAGE value="clean code" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean code" />
   </component>
 </project>

@@ -1,0 +1,11 @@
+X,Y,uid,date,temperature,valflag,idtrack,release_name,drifter_name
+-8.801648,42.620889,"454",2018/11/15 10:01:32,,"0","19",primer lanzamento,palillo 1
+-8.796123,42.623171,"446",2018/11/15 09:45:36,,"0","19",primer lanzamento,palillo 1
+-8.791454,42.625279,"437",2018/11/15 09:31:28,,"0","19",primer lanzamento,palillo 1
+-8.785946,42.627728,"426",2018/11/15 09:15:43,,"0","19",primer lanzamento,palillo 1
+-8.782126,42.629585,"417",2018/11/15 09:02:46,,"0","19",primer lanzamento,palillo 1
+-8.798892,42.622301,"491",2018/11/15 11:47:32,,"0","28",segundo lanzamento,palillo 1
+-8.792475,42.625048,"484",2018/11/15 11:33:26,,"0","28",segundo lanzamento,palillo 1
+-8.78466,42.628654,"476",2018/11/15 11:16:14,,"0","28",segundo lanzamento,palillo 1
+-8.778006,42.632023,"462",2018/11/15 10:58:00,,"0","28",segundo lanzamento,palillo 1
+

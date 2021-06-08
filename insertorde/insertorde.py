@@ -22,16 +22,13 @@ This software was developed by INTECMAR.
 
 
 import psycopg2
-
 import sys
+import json
+from collections import OrderedDict
+
+from cleanatlantic import ReadDB
 
 
-from osgeo import ogr
-from shapely.wkt import loads
-
-from customize import add_lib
-add_lib()
-from intecmar.fichero import input_file
 
 
 def main():
@@ -49,24 +46,26 @@ def main():
     nome = "insertorde.dat"
     chaves = ['FILEIN', 'ID_ORDER']
 
-    retorno = input_file(nome, chaves)
-    file_in = retorno[0]
-    orde_id = int(retorno[1])
+    try:
+        with open('insertorde.json', 'r') as f:
+            inputs = json.load(f, object_pairs_hook=OrderedDict)
+            file_in = inputs['file_in']
+            orde_id = inputs['order_id']
+            db_json = inputs['db_json']
 
-    # WARNING:
-    #
-    #           Production server host: svr_ide_1
-    #           Developing server host: svr_dev_1
-    #
-    # CHANGE IF NEEDED
 
-    database_data = {'host': 'svr_dev_1',
-                     'port': '5432',
-                     'dbname': 'CleanAtlantic',
-                     'user': 'postgres',
-                     'password': '986512320'}
+    except IOError:
+        sys.exit('An error happened trying to read the file.')
+    except KeyError:
+        sys.exit('An error with a key')
+    except ValueError:
+        sys.exit('Non-numeric data found in the file.')
+    except Exception as err:
+        print(err)
+        sys.exit("Error with the input hdflitter.json")
 
-    # End static configuration
+
+
 
     # Read a file with a column with the sorted id of polygons
 
@@ -78,16 +77,8 @@ def main():
             polygons_id.append(polygon_id)
 
     # Connection to postgis
-    connection_string = 'host={0} port={1} dbname={2} user={3} password={4}'.format(database_data['host'],
-                                                                                    database_data['port'],
-                                                                                    database_data['dbname'],
-                                                                                    database_data['user'],
-                                                                                    database_data['password'])
-    try:
-        conn = psycopg2.connect(connection_string)
-    except psycopg2.OperationalError as e:
-        print('CAUTION: ERROR WHEN CONNECTING TO {0}'.format(database_data['host']))
-        sys.exit()
+    read_db = ReadDB(db_json)
+    conn = read_db.get_connection()
 
     cur = conn.cursor()
     cur.execute("delete from acumulos.orde where orde_id=%s", (orde_id,))
